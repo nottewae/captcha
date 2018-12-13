@@ -11,10 +11,16 @@ import json
 import redis
 import traceback
 start_time = time.clock()
-MODEL_FILENAME = "captcha_model.hdf5"
-MODEL_LABELS_FILENAME = "model_labels.dat"
-
 env = os.environ['HOME']
+if env=='production':
+
+    MODEL_FILENAME = "/srv/captcha/captcha_model.hdf5"
+    MODEL_LABELS_FILENAME = "/srv/captha/model_labels.dat"
+else:
+    MODEL_FILENAME = "captcha_model.hdf5"
+    MODEL_LABELS_FILENAME = "model_labels.dat"
+
+
 def connect_to_redis(counter=0):
     if env == 'production':
         r = redis.Redis(host = '91.240.87.81', port = 6379, db = 10, password = '3P5SPRiOwYd1ZrUqaEbb7cqZgdbow')
