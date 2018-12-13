@@ -18,7 +18,7 @@ if env=='development':
     
 else:
     MODEL_FILENAME = "/srv/captcha/captcha_model.hdf5"
-    MODEL_LABELS_FILENAME = "/srv/captha/model_labels.dat"
+    MODEL_LABELS_FILENAME = "/srv/captcha/model_labels.dat"
 
 
 def connect_to_redis(counter=0):
